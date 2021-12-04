@@ -14,7 +14,7 @@ class TestApp():
         tester = app.test_client(self)
         response = tester.get('/iproutes', content_type='html/text')
         assert(response.status_code  == 200)
-        assert(response.data  == b'iproutes')  
+        assert(response.data  == b'ip routes')  
 
 
 
