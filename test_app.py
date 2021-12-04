@@ -9,6 +9,15 @@ class TestApp():
         response = tester.get('/', content_type='html/text')
         assert(response.status_code  == 200)
         assert(response.data  == b'Default Home Page')  
+        
+    def test_iproutes(self):
+        tester = app.test_client(self)
+        response = tester.get('/iproutes', content_type='html/text')
+        assert(response.status_code  == 200)
+        assert(response.data  == b'iproutes')  
+
+
+
 
 
    
