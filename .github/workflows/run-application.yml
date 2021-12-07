@@ -34,3 +34,17 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+        
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build -t hasherquoom/net2008-ass4:latest .
+    -  
+      uses: docker/login-action@v1
+      name: Login into DockerHub
+      with:
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_SECRET }}
+      
+    - uses: actions/checkout@v2
+    - name: Push to DockerHub
+      run: docker push hasherquoom/net2008-ass4:latest
