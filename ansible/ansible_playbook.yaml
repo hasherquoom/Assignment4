@@ -1,0 +1,18 @@
+---
+ - hosts: localhost
+   connection: local
+   tasks:
+   - name: Clone a github repository
+     git:
+       repo: https://github.com/gourteacher/Assignment4CodeBase.git
+       dest: /home/hasher/Assignment4 
+       clone: yes
+       update: yes
+  
+   - name: Install pip packages
+     pip:
+       name: Flask=2.0.2 
+       name: pytest
+      
+   - name: Execute python app
+     shell: python3 app.py
